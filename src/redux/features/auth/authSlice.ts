@@ -1,11 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
-type TAuthType = {
-  user: null | object;
+
+export type TUser = {
+  userId:string;
+  role:string;
+  iat:number;
+  exp:number;
+};
+
+type TAuthState = {
+  user: null | TUser;
   token: null | string;
 };
 
-const initialState: TAuthType = {
+const initialState: TAuthState = {
   user: null,
   token: null,
 };
@@ -23,7 +31,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { setUser } = authSlice.actions;
+export const { setUser,logout } = authSlice.actions;
 
 export const authReducer= authSlice.reducer;
 
