@@ -43,8 +43,8 @@ const baseQueryWithRefreshToken: BaseQueryFn = async (
         })
       );
       result = await baseQuery(args, api, extraOptions);
-    }else{
-      api.dispatch(logout())
+    } else {
+      api.dispatch(logout());
     }
     //
   }
